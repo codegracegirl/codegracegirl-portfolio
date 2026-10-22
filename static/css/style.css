@@ -1254,12 +1254,12 @@ h2 {
 }
 
 
-/* ==========================================
-   CODEGRACEGIRL — COMPLETE RESPONSIVE FIX
-   Desktop • Laptop • Tablet • Mobile
-========================================== */
+/* =====================================
+   CODEGRACEGIRL — FULL RESPONSIVE FIX
+   Add this at the END of style.css
+===================================== */
 
-/* 1. GLOBAL RESET */
+/* 1. Prevent horizontal overflow */
 *,
 *::before,
 *::after {
@@ -1268,63 +1268,55 @@ h2 {
 
 html {
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
-picture,
 video,
 iframe,
 svg {
   max-width: 100%;
 }
 
-img,
-video {
+img {
   height: auto;
 }
 
-button,
 input,
+textarea,
 select,
-textarea {
+button {
   max-width: 100%;
   font: inherit;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-a {
-  overflow-wrap: anywhere;
 }
 
 h1,
 h2,
 h3,
-h4,
-p {
+p,
+a,
+span {
   overflow-wrap: break-word;
 }
 
-input,
-select,
-textarea {
+section,
+main,
+header,
+footer {
   min-width: 0;
+  max-width: 100%;
 }
 
-/* 2. SHARED CONTAINERS */
+/* 2. Keep content inside the screen */
 .container,
 .section,
 .header,
@@ -1338,227 +1330,26 @@ textarea {
   min-width: 0;
 }
 
-.container,
-.section-inner {
-  width: min(1160px, calc(100% - 48px));
-  margin-inline: auto;
-}
-
-/* 3. RESPONSIVE TEXT */
-h1 {
-  font-size: clamp(2.25rem, 5vw, 4.8rem);
-  line-height: 1.08;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 3.5vw, 3rem);
-  line-height: 1.15;
-}
-
-h3 {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.35;
-}
-
-p {
-  line-height: 1.75;
-}
-
-/* 4. HEADER AND NAVIGATION */
-.header {
-  position: relative;
-  max-width: 100%;
-}
-
-.header > *,
-.nav > * {
-  min-width: 0;
-}
-
-.logo {
-  flex-shrink: 1;
-  min-width: 0;
-}
-
-.menu-toggle {
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-/* 5. HERO SECTION */
-.hero {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.hero > *,
-.hero-content,
-.hero-visual {
-  min-width: 0;
-}
-
-.hero img,
-.hero-visual img,
-.profile-image,
-.profile-photo {
-  display: block;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.hero h1 {
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
-
-.hero p {
-  max-width: 65ch;
-}
-
-.hero-stats,
-.hero-actions,
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.hero-stats > *,
-.hero-actions > *,
-.actions > * {
-  min-width: 0;
-}
-
-/* 6. SERVICES, SKILLS AND PROJECTS */
-.services-grid,
-.project-grid,
-.projects-grid,
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  width: 100%;
-}
-
-.service-card,
 .project-card,
-.skill-card,
-.project-item {
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.service-card img,
-.project-card img,
-.project-item img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.project-card h3,
-.project-card p,
-.service-card p {
-  overflow-wrap: anywhere;
-}
-
-.project-card a,
-.service-card a,
-.button {
-  max-width: 100%;
-}
-
-/* 7. ABOUT SECTION */
-.about-layout,
-.about-content,
-.about-image,
-.about-text {
+.service-card,
+.contact-form,
+.contact-copy {
   min-width: 0;
   max-width: 100%;
 }
 
-.about-image img,
-.about-content img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
+/* 3. Tablet */
+@media (max-width: 900px) {
+  .hero {
+    gap: 32px;
+  }
 
-/* 8. CONTACT SECTION */
-.contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 64px);
-  align-items: start;
-}
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 54px);
+  }
 
-.contact-copy,
-.contact-form {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.contact-form {
-  width: 100%;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea,
-form input,
-form select,
-form textarea {
-  width: 100%;
-  min-width: 0;
-}
-
-.contact-form textarea,
-form textarea {
-  resize: vertical;
-}
-
-.contact-form button,
-form button {
-  max-width: 100%;
-  cursor: pointer;
-}
-
-.contact-link {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-/* 9. FOOTER */
-.footer,
-.footer-top,
-.footer-bottom {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.footer-top,
-.footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* 10. TABLET — 1024px */
-@media (max-width: 1024px) {
-  .container,
-  .section-inner {
-    width: calc(100% - 40px);
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .services-grid,
@@ -1566,204 +1357,221 @@ form button {
   .projects-grid,
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
-
-  .contact-layout {
-    gap: 28px;
-  }
-}
-
-/* 11. MOBILE NAVIGATION AND LAYOUT — 760px */
-@media (max-width: 760px) {
-  html {
-    scroll-padding-top: 75px;
-  }
-
-  .container,
-  .section-inner {
-    width: calc(100% - 32px);
-  }
-
-  .header {
-    gap: 12px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Works with JS that toggles .nav.open */
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    padding: 14px;
-    background: #211d2b;
-    border: 1px solid rgba(190, 160, 255, 0.25);
-    border-radius: 14px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav.open {
-    display: flex;
-  }
-
-  .nav a {
-    display: block;
-    width: 100%;
-    padding: 12px;
-  }
-
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-    min-height: auto;
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .hero-content {
-    width: 100%;
   }
 
   .hero-visual {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* 4. Mobile phones */
+@media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .container,
+  .section,
+  .header,
+  .footer {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Header and navigation */
+  .header {
+    position: relative;
+    gap: 10px;
+  }
+
+  .logo {
+    min-width: 0;
+    max-width: calc(100% - 55px);
+  }
+
+  .menu-toggle {
+    flex-shrink: 0;
+  }
+
+  .nav {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Hero section */
+  .hero {
     width: 100%;
-    max-width: 380px;
-    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-content,
+  .hero-visual {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    font-size: clamp(34px, 9vw, 48px);
+    line-height: 1.12;
+  }
+
+  .hero p {
+    max-width: 100%;
+  }
+
+  .hero-visual img,
+  .profile-image,
+  .profile-photo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  /* Section spacing */
+  section {
+    scroll-margin-top: 80px;
   }
 
   .block,
-  .section {
-    padding-top: 58px;
-    padding-bottom: 58px;
+  .section-padding {
+    padding-top: 52px;
+    padding-bottom: 52px;
   }
 
   .section-heading {
     align-items: flex-start;
+    flex-direction: column;
     gap: 12px;
   }
 
-  .contact-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
-  }
-
-  .contact-form {
-    padding: 22px;
-  }
-
-  .footer-top,
-  .footer-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .social-links {
-    margin-left: 0;
-  }
-}
-
-/* 12. SMALL MOBILE — 480px */
-@media (max-width: 480px) {
-  .container,
-  .section-inner {
-    width: calc(100% - 28px);
-  }
-
+  /* Cards */
   .services-grid,
   .project-grid,
   .projects-grid,
   .skills-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-  }
-
-  .hero {
-    padding-top: 36px;
-    padding-bottom: 40px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 9vw, 2.7rem);
-  }
-
-  .hero-stats {
-    gap: 18px;
-  }
-
-  .hero-actions,
-  .actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .hero-actions .button,
-  .actions .button,
-  .hero-actions a,
-  .actions a {
     width: 100%;
-    text-align: center;
+    gap: 20px;
+  }
+
+  .project-card,
+  .service-card,
+  .skill-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .project-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Contact section */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    gap: 28px;
+  }
+
+  .contact-copy,
+  .contact-form {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .contact-form {
-    padding: 18px 15px;
+    padding: 22px 16px;
   }
 
   .contact-form input,
-  .contact-form select,
   .contact-form textarea,
-  form input,
-  form select,
-  form textarea {
+  .contact-form select {
+    display: block;
+    width: 100%;
+    min-width: 0;
     font-size: 16px;
   }
 
-  .contact-link {
-    gap: 10px;
-    padding: 12px;
+  .contact-form textarea {
+    resize: vertical;
   }
 
-  .footer-top {
-    gap: 14px;
+  .contact-link {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* Buttons */
+  .actions,
+  .hero-actions {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  .actions .button,
+  .hero-actions .button {
+    max-width: 100%;
+  }
+
+  /* Footer */
+  .footer-top,
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-left: 0;
   }
 }
 
-/* 13. EXTRA SMALL PHONES — 360px */
-@media (max-width: 360px) {
+/* 5. Small phones */
+@media (max-width: 380px) {
   .container,
-  .section-inner {
+  .section,
+  .header,
+  .footer {
     width: calc(100% - 24px);
   }
 
   .hero h1 {
-    font-size: 1.95rem;
+    font-size: 32px;
   }
 
   .contact-form {
-    padding: 15px 12px;
+    padding: 18px 12px;
   }
 
-  .hero-stats {
-    gap: 12px;
-  }
-
-  .social-links {
+  .contact-link {
+    padding: 10px;
     gap: 8px;
+  }
+
+  .button {
+    white-space: normal;
   }
 }
 
-/* 14. ACCESSIBILITY */
+/* 6. Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
